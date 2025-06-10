@@ -2,17 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Clocks with Weather</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>World Clock</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="clock" data-city="America/Edmonton" data-label="Calgary"></div>
-    <div class="clock" data-city="Africa/Lusaka" data-label="Lusaka"></div>
-    <div class="clock" data-city="America/Detroit" data-label="Grand Rapids"></div>
-    <div class="clock" data-city="Europe/Paris" data-label="France"></div>
+  <div class="world-clock">
+    <div class="card" data-zone="America/Edmonton" style="background-image: url('https://source.unsplash.com/featured/?calgary');">
+      <div class="overlay">
+        <h2>Calgary <span>America</span></h2>
+        <div class="time">--:--</div>
+        <div class="utc">UTC-06:00</div>
+        <div class="date">--</div>
+      </div>
+    </div>
+
+    <div class="card" data-zone="Africa/Lusaka" style="background-image: url('https://source.unsplash.com/featured/?lusaka');">
+      <div class="overlay">
+        <h2>Lusaka <span>Africa</span></h2>
+        <div class="time">--:--</div>
+        <div class="utc">UTC+02:00</div>
+        <div class="date">--</div>
+      </div>
+    </div>
+
+    <div class="card" data-zone="America/Detroit" style="background-image: url('https://source.unsplash.com/featured/?grandrapids');">
+      <div class="overlay">
+        <h2>Grand Rapids <span>America</span></h2>
+        <div class="time">--:--</div>
+        <div class="utc">UTC-05:00</div>
+        <div class="date">--</div>
+      </div>
+    </div>
+
+    <div class="card" data-zone="Europe/Paris" style="background-image: url('https://source.unsplash.com/featured/?paris');">
+      <div class="overlay">
+        <h2>France <span>Europe</span></h2>
+        <div class="time">--:--</div>
+        <div class="utc">UTC+01:00</div>
+        <div class="date">--</div>
+      </div>
+    </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
