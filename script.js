@@ -1,23 +1,26 @@
 function updateClocks() {
-  document.querySelectorAll('.card').forEach(card => {
-    const zone = card.getAttribute('data-zone');
-    const time = new Date().toLocaleTimeString("en-GB", {
-      timeZone: zone,
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false
-    });
-    const date = new Date().toLocaleDateString("en-GB", {
-      timeZone: zone,
-      day: "2-digit",
-      month: "long",
-      year: "numeric"
-    });
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    const timeZone = card.getAttribute("data-zone");
+    const now = new Date().toLocaleString("en-US", { timeZone });
+    const dateObj = new Date(now);
+    
+    const time = dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const date = dateObj.toLocaleDateString();
 
     card.querySelector(".time").textContent = time;
     card.querySelector(".date").textContent = date;
   });
 }
 
-setInterval(updateClocks, 1000);
+// Parallax effect
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.parallax').forEach(el => {
+    const speed = parseFloat(el.dataset.speed);
+    el.style.transform = `translateY(${window.scrollY * speed}px)`;
+  });
+});
+
+// Update clocks every minute
 updateClocks();
+setInterval(updateClocks, 60000);
